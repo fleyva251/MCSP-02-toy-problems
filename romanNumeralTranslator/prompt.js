@@ -28,4 +28,37 @@ var DIGIT_VALUES = {
 
 var translateRomanNumeral = function(romanNumeral) {
   // TODO: Implement me!
+  //return null if input is not a string
+  if(typeof romanNumeral != 'string') {
+    return null
+  }
+  //create holder variable
+  let romanArray = [];
+
+  //create result array
+  let resultArr = [];
+  //split input into holder
+  romanArray = romanNumeral.split('');
+  //helper function for reduce
+  const addition = (accumulator, currentValue) => {
+   return accumulator + currentValue;
+  }
+  //helper function for reduce
+  const subtraction = (accumulator, currentValue) => {
+    return currentValue - accumulator
+  }
+  //iterate through and check letter for value i.e if it is I then it is equal to 1
+  for(let i = 0; i < romanArray.length; i++) {
+    resultArr.push(DIGIT_VALUES[romanArray[i]]);
+  }
+    //example 'LVI' should be ['L', 'V', 'I']
+  if(romanArray[0] === 'I') {
+    return resultArr.reduce(subtraction)
+  } else {
+    return resultArr.reduce(addition)
+  }
+  //if an I is before any other letter excpet itself, perform subtraction instead of addition
+  //add the outcome to the result variable
+  //return result var
 };
+console.log(translateRomanNumeral('XIV'));
