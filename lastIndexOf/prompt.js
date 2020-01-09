@@ -3,4 +3,12 @@
 
 function lastIndexOf(target, array) {
   //solution code here
+  //return array.lastIndexOf(target)
+  for(let i = array.length; i >= 0; i--) {
+    if(array[i] === target) {
+      return i
+    }
+  }
 }
+
+console.log(lastIndexOf(1, [1,2,4,5,6,4,6,8,4,32,5,8,4,5,6,4]))
