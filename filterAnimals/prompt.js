@@ -9,4 +9,19 @@ const animals = [
   { name: "Celeste", age: 1 }
 ];
 
-const animalsOlderThanFive = collection => {};
+const animalsOlderThanFive = collection => {
+  result = collection.filter( (animal) => {
+    if (animal.age > 5) {
+      //console.log(animal.name)
+      return animal.name
+    }
+  })
+  //console.log(result);
+  solution = result.map( animal => {
+   //console.log(animal.name)
+    return animal.name
+  });
+  return solution
+};
+
+console.log(animalsOlderThanFive(animals))
